@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abdi — Jima</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #f5f5f5;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .terminal {
+      max-width: 820px;
+      margin: 48px auto;
+      background: #0a0a0a;
+      border: 1px solid #1f1f1f;
+      border-radius: 12px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+      overflow: hidden;
+    }
+
+    .bar {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid #1f1f1f;
+      background: #050505;
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #333; margin-right: 6px; }
+    .title { margin: auto; font-size: 0.75rem; color: #777; }
+
+    .content { padding: 28px; }
+    .line { margin-bottom: 10px; white-space: pre-wrap; }
+    .prompt { color: #888; }
+    .cmd { color: #fff; }
+    .output { color: #ccc; margin-left: 14px; }
+    .file { color: #fff; cursor: pointer; border-bottom: 1px dashed #444; }
+    .file:hover { border-bottom-color: #fff; }
+    .cursor { display: inline-block; width: 8px; height: 1em; background: #fff; margin-left: 6px; animation: blink 1s steps(1) infinite; }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    @media (max-width: 600px) {
+      .terminal { margin: 20px; }
+      .content { padding: 20px; }
+    }
+
+    .logo {
+      width: 20px;  
+      /* adjust size */
+      height: 20px;
+      margin-right: 8px;
+      vertical-align: middle;
+      
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px dashed #444;
+    }
+
+    a:hover {
+      border-bottom-color: #fff;
+    }
+
+    .file {
+      opacity: 0.85;
+    }
+
+    .file:hover {
+      opacity: 1;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+<div class="terminal">
+  <div class="bar">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <!-- Logo + Name -->
+    <img src="logo2.png" alt="Kiya+ Logo" class="logo">
+    <div class="title">@KiyaplusX — Owner</div>
+  </div>
+
+  <div class="content" id="terminal">
+
+    <!-- intro -->
+    <div class="line">
+      <span class="prompt">@KiyaplusX :~$</span>
+      <span class="cmd">who am i</span>
+    </div>
+
+    <div class="line output">
+      <span class="file" onclick="openIam('iam')">About me...</span>
+    </div>
+    
+    <div class="line">
+      <span class="prompt">@KiyaplusX :~$</span>
+      <span class="cmd">Posts</span>
+    </div>
+
+    <div class="line output">
+      <span class="file" onclick="openPost('post1')"><b>1.</b> Abdi's Assignment...</span>  
+      <span class="file" onclick="openPost('post2')"><b>2.</b> coming soon...</span>  
+      <span class="file" onclick="openPost('post3')"><b>3.</b> coming soon...</span>
+      <span class="file" onclick="openPost('post4')"><b>4.</b> coming soon...</span>
+      <span class="file" onclick="openPost('post5')"><b>5.</b> coming soon...</span>
+    </div>
+
+    <div id="posts"></div>
+    <div id="iam"></div>
+
+    <div class="line">
+      <span class="prompt">@KiyaplusX :~$</span>
+      <span class="cursor"></span>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="line" style="margin-top: 40px; border-top: 1px solid #333; padding-top: 12px;">
+      <span class="prompt">Contact me:</span>
+      <span class="output">
+        <a href="https://t.me/KiyaplusX" target="_blank">Telegram</a> ·
+        <a href="mailto:kiyatesfaye82@gmail.com">Email</a>
+      </span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const iam = {
+    iam: 'Kiya Tesfaye — Frontend Developer & Designer'
+  };
+  const posts = {
+    post1: `Title: Abdi's Assignment.
+Date: 2025-12-26 
+For: Jimma University
+College of Law and Governance
+Department of Civics and Ethics Studies
+
+Question 1: Determine whether the following definitions are stipulative, lexical, précising, theoretical, or persuasive.
+Book: A set of printed or written pages that have been bound together and have a cover.
+Answer: Lexical definition.
+This definition explains what the word “book” usually means in everyday language. It describes the common, generally accepted meaning of the term without adding any personal judgment or special conditions.
+Cognitive dissonance: A state of mental discomfort that occurs when a person holds two or more conflicting beliefs, values, or ideas.
+Answer: Theoretical definition.
+This is a concept from psychology. It doesn’t just explain the word itself—it explains a phenomenon based on scientific understanding. The definition is tied to a broader theory about how humans think and react to contradictions in their beliefs.
+Eco-car: Any vehicle that emits zero carbon emissions.
+Answer: Stipulative definition.
+This definition assigns a specific meaning to the term “eco-car.” Not everyone may use the word in exactly this way, but here it is defined clearly for the purpose of discussion or analysis.
+Smoker: A rude and disgusting person who blows out harmful tobacco smoke, putting others at risk.
+Answer: Persuasive definition.
+This definition is designed to influence opinion. It adds emotionally charged words to make the reader feel negatively toward smokers rather than neutrally describe the term.
+Smart gadget: Any device that can connect to the internet.
+Answer: Précising definition.
+The term “smart gadget” can be vague, so this definition makes it more precise and useful. It removes ambiguity by clearly stating the key characteristic that qualifies a device as “smart.”
+
+Question 2: Put these terms in order according to extension and intension.
+Terms: University, Educational Institution, Higher Education Institution, Jimma University
+A. Increasing Extension (from specific → general)
+Jimma University → University → Higher Education Institution → Educational Institution
+(This order starts from the most specific example and moves to broader categories.)
+B. Decreasing Extension (from general → specific)
+Educational Institution → Higher Education Institution → University → Jimma University
+(This starts from the broadest category and moves to the most specific.)
+C. Increasing Intension (adding more details, general → specific)
+Educational Institution → Higher Education Institution → University → Jimma University
+(Here, we start with a general concept and gradually add more defining characteristics until reaching a specific instance.)
+D. Decreasing Intension (removing details, specific → general)
+Jimma University → University → Higher Education Institution → Educational Institution
+(This starts with the most detailed or specific entity and gradually removes defining details, ending with the broadest term.)
+
+Question 3: Explain extensional and intensional definitions with examples.
+Definitions can be understood in two main ways: extensional and intensional. Both approaches aim to clarify the meaning of a term, but they do so differently.
+A. Extensional Definitions
+These definitions clarify a term by pointing to specific examples or members of a category. They show what the word refers to in practice.
+Ostensive Definition: Demonstrates examples directly.
+Example: Pointing to a chair, table, and desk while saying, “These are furniture.”
+Enumerative Definition: Lists all individual items the term refers to.
+Example: “Primary colors are red, blue, and yellow.”
+Definition by Subclass: Lists groups or categories instead of individual items.
+Example: “Vertebrates include mammals, birds, reptiles, amphibians, and fish.”
+B. Intensional Definitions
+These definitions explain a term by identifying its essential characteristics or features, rather than listing examples.
+Genus and Differentia: States the general category (genus) and the specific features that make it unique (differentia).
+Example: “A triangle is a polygon (general group) with three sides (distinctive feature).”
+Synonymous Definition: Uses another word or phrase with the same meaning.
+Example: “Physician means doctor.”
+Operational Definition: Explains the term in terms of how it is measured or identified.
+Example: “Intelligence is the score obtained on an IQ test.”
+Theoretical Definition: Explains a term based on a theory or scientific understanding.
+Example: “Gravity is the force that pulls objects with mass toward each other.”
+Conclusion
+Definitions are more than just dictionary explanations—they help us communicate clearly and avoid confusion. Some definitions describe everyday words, others refine vague terms, some are persuasive to influence opinions, and some explain concepts within science or theory. Understanding the different types of definitions, as well as the extensional and intensional approaches, allows us to describe ideas accurately and thoughtfully.`,
+
+    post2: `Title: Coming Soon...
+Date: 2025-12-26
+
+Coming Soon...`,
+
+    post3: `Title: Coming Soon...
+Date: 2025-12-26
+
+Coming Soon...`,
+
+    post4: `Title: Coming Soon...
+Date: 2025-12-26
+
+Coming Soon...`,
+
+    post5: `Title: Coming Soon...
+Date: 2025-12-26
+
+Coming Soon...`,
+  };
+
+  function typeText(container, text, speed = 20) {
+  // If HTML content exists, render instantly
+  if (text.includes('<img')) {
+    container.innerHTML = text;
+    return;
+  }
+
+  container.innerHTML = '';
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      container.innerHTML += text[i];
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+
+  type();
+}
+
+  function openIam(id) {
+    const postsContainer = document.getElementById("iam");
+    // Add command line first
+    postsContainer.innerHTML = `
+      <div class="line">
+        <span class="prompt">@KiyaplusX :~$</span>
+        <span class="cmd">Me ${id}.txt</span>
+      </div>
+      <div class="line output" id="typing-output"></div>
+    `;
+    // Run typing animation 
+    const output = document.getElementById("typing-output");
+    typeText(output, iam[id]);
+  }
+  function openPost(id) {
+    // update URL
+    window.location.hash = id;
+    
+    const postsContainer = document.getElementById("posts");
+    // Add command line first
+    postsContainer.innerHTML = `
+      <div class="line">
+        <span class="prompt">@KiyaplusX :~$</span>
+        <span class="cmd">Plus(+) ${id}.txt</span>
+      </div>
+      <div class="line output" id="typing-output"></div>
+
+      <div class="line output" style="margin-top:12px;">
+         <span class="file" onclick="openPost('${id}')">[ open ]</span>
+  &nbsp;
+         <span class="file" onclick="copyPostLink('${id}')">[ copy ]</span>
+  &nbsp;
+         <span class="file" onclick="sharePost('${id}')">[ share ]</span>
+      </div>
+    `;
+    // Run typing animation
+    const output = document.getElementById("typing-output");
+    typeText(output, posts[id]);
+  }
+
+  function typeText(container, text, speed = 20) {
+  // Check if text contains <img>, if yes, skip typing and render HTML
+  if (text.includes('<img')) {
+    container.innerHTML = text;
+    return;
+  }
+
+  container.innerHTML = '';
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      container.innerHTML += text[i];
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  type();
+  }
+
+  function openFromHash() {
+    const id = window.location.hash.replace("#", "");
+    if (posts[id]) {
+      openPost(id);
+    }
+  }
+
+  window.addEventListener("load", openFromHash);
+  window.addEventListener("hashchange", openFromHash);
+
+  function copyPostLink(id) {
+  const url = `${window.location.origin}${window.location.pathname}#${id}`;
+  navigator.clipboard.writeText(url);
+  logToTerminal("Link copied ✔");
+}
+
+  function sharePost(id) {
+  const url = `${window.location.origin}${window.location.pathname}#${id}`;
+
+  if (navigator.share) {
+    navigator.share({
+      title: "Kiya — Terminal",
+      text: "Check out this post",
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(url);
+    logToTerminal("Share not supported. Link copied instead.");
+  }
+}
+
+  function logToTerminal(message) {
+  const terminal = document.getElementById("posts");
+  terminal.insertAdjacentHTML("beforeend", `
+    <div class="line output">
+      ${message}
+    </div>
+  `);
+}
+  
+</script>
+
+</body>
+</html>
